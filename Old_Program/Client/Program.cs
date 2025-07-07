@@ -85,7 +85,7 @@ namespace BotClient
                     sender.Connect(remoteEP);
                     Console.WriteLine($"[PACKET] Socket connected to {sender.RemoteEndPoint.ToString()}");
                     Console.WriteLine("------------------------------");
-                    Console.Write("´Ğ³×ÀÓÀ» ¼³Á¤ÇÏ¼¼¿ä : ");
+                    Console.Write("ë‹‰ë„¤ì„ì„ ì„¤ì •í•˜ì„¸ìš” : ");
 
                     sender.NoDelay = true;
                     sender.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, 1000);
@@ -187,7 +187,6 @@ namespace BotClient
                 // Set NickName
                 if (!_successfullName)
                 {
-                    // TODO : ½Ç½Ã°£À¸·Î Ã¤ÆÃ ¹Ş°Ô ¸¸µé±â
                     string nickName = Console.ReadLine();
 
                     var nickNamePacket = new PacketBase();
@@ -224,33 +223,33 @@ namespace BotClient
                     switch (command)
                     {
                         case "help":
-                            Console.WriteLine("[¸í·É¾î ¸ñ·Ï]");
-                            Console.WriteLine("µµ¿ò¸»: /help, \n /w <´ë»ó> <¸Ş½ÃÁö> | (°¡´É ¸í·É¾î : whisper, ¤¸)");
+                            Console.WriteLine("[ëª…ë ¹ì–´ ëª©ë¡]");
+                            Console.WriteLine("ë„ì›€ë§: /help, \n /w <ëŒ€ìƒ> <ë©”ì‹œì§€> | (ê°€ëŠ¥ ëª…ë ¹ì–´ : whisper, ã…ˆ)");
                             break;
 
                         case "w":
-                        case "¤¸":
+                        case "ã…ˆ":
                         case "whisper":
                             if (parts.Length < 2)
                             {
-                                Console.WriteLine("»ç¿ë¹ı: /w <´ë»ó> <¸Ş½ÃÁö> | (°¡´É ¸í·É¾î : whisper, ¤¸)");
+                                Console.WriteLine("ì‚¬ìš©ë²•: /w <ëŒ€ìƒ> <ë©”ì‹œì§€> | (ê°€ëŠ¥ ëª…ë ¹ì–´ : whisper, ã…ˆ)");
                                 break;
                             }
 
                             var whisperParts = parts[1].Split(new char[] { ' ' }, 2);
                             if (whisperParts.Length < 2)
                             {
-                                Console.WriteLine("»ç¿ë¹ı: /w <´ë»ó> <¸Ş½ÃÁö> | (°¡´É ¸í·É¾î : whisper, ¤¸)");
+                                Console.WriteLine("ì‚¬ìš©ë²•: /w <ëŒ€ìƒ> <ë©”ì‹œì§€> | (ê°€ëŠ¥ ëª…ë ¹ì–´ : whisper, ã…ˆ)");
                                 break;
                             }
 
                             string reciverUserName = whisperParts[0];
                             string whisperMessage = whisperParts[1];
 
-                            if(reciverUserName == _myName)
+                            if (reciverUserName == _myName)
                             {
-                                Console.WriteLine("Àß¸øµÈ »ç¿ë¹ı");
-                                Console.WriteLine("»ç¿ë¹ı: /w <´ë»ó> <¸Ş½ÃÁö> | (°¡´É ¸í·É¾î : whisper, ¤¸)");
+                                Console.WriteLine("ì˜ëª»ëœ ì‚¬ìš©ë²•");
+                                Console.WriteLine("ì‚¬ìš©ë²•: /w <ëŒ€ìƒ> <ë©”ì‹œì§€> | (ê°€ëŠ¥ ëª…ë ¹ì–´ : whisper, ã…ˆ)");
                             }
 
                             var whisperMsgPacket = new PacketBase();
@@ -266,9 +265,9 @@ namespace BotClient
                             break;
 
                         default:
-                            Console.WriteLine($"¾Ë ¼ö ¾ø´Â ¸í·É¾î: {command}");
-                            Console.WriteLine("[¸í·É¾î ¸ñ·Ï]");
-                            Console.WriteLine("µµ¿ò¸»: /help, \n /w <´ë»ó> <¸Ş½ÃÁö> | (°¡´É ¸í·É¾î : whisper, ¤¸)");
+                            Console.WriteLine($"ì•Œ ìˆ˜ ì—†ëŠ” ëª…ë ¹ì–´: {command}");
+                            Console.WriteLine("[ëª…ë ¹ì–´ ëª©ë¡]");
+                            Console.WriteLine("ë„ì›€ë§: /help, \n /w <ëŒ€ìƒ> <ë©”ì‹œì§€> | (ê°€ëŠ¥ ëª…ë ¹ì–´ : whisper, ã…ˆ)");
                             break;
                     }
 
