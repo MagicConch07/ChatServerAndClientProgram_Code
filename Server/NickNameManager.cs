@@ -26,7 +26,7 @@
 
         public bool TryAddNickName(int id, string nickName)
         {
-            if(_pcNickNameDictinoary.ContainsKey(id) || _pcNickNameDictinoary.ContainsValue(nickName))
+            if (_pcNickNameDictinoary.ContainsKey(id) || _pcNickNameDictinoary.ContainsValue(nickName))
             {
                 return false;
             }

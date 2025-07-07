@@ -102,7 +102,7 @@ namespace Process
                 updateCount = 0;
             updateCount++;
             stopwatch.Stop();
-            
+
             Program.UpdatePacketStats(PacketType.None, stopwatch.ElapsedMilliseconds);
         }
 
@@ -121,7 +121,7 @@ namespace Process
 
             if (messageReqData.senderName == messageReqData.receiverName)
             {
-                Log.Instance.FileLog(Log.LogId.PACKET, Log.LogLevel.TRC_WARNING, $"Àß¸øµÈ ±Ó¼Ó¸» ÀÌ¸§ : {messageReqData.senderName}");
+                Log.Instance.FileLog(Log.LogId.PACKET, Log.LogLevel.TRC_WARNING, $"ì˜ëª»ëœ ê·“ì†ë§ ë³´ë‚¸ ì‚¬ëŒ : {messageReqData.senderName}");
                 return;
             }
 
@@ -137,16 +137,12 @@ namespace Process
 
             if (messageReqData.msgType == MsgType.Msg)
             {
-                // TODO : ÃßÈÄ¿¡ ¸Ş¼¼Áö °ËÁõ ·ÎÁ÷ ³Ö±â(±İÄ¢¾î Ã³¸®)
                 msg_packet.Write(msgAck);
                 SocketManager.BroadcastToAll(PacketType.MessageAck, msg_packet.GetPacketData());
                 Console.WriteLine($"[{msgAck.senderName}] : {msgAck.msg}");
             }
-            else if(messageReqData.msgType == MsgType.Whisper)
+            else if (messageReqData.msgType == MsgType.Whisper)
             {
-                // ´Ğ³×ÀÓ °ËÁõ ÇÊ¿äÇÒ·Á³ª?
-                //NickNameManager.Instance.TryGetNickName(clientId, out senderName);
-
                 if (NickNameManager.Instance.TryGetClientId(messageReqData.receiverName, out int id))
                 {
                     Program.SendPacket(handler, PacketType.MessageAck, msg_packet.GetPacketData());

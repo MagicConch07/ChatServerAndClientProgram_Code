@@ -195,7 +195,7 @@ namespace ChatServer
             }
             return "172.31.1.176"; // 기본 IP 주소
         }
-            
+
         public static void SaveConfig(string ip, int port, string configPath)
         {
             try
