@@ -93,11 +93,11 @@ namespace BotClient
 
             if (msgAck.msgType == MsgType.Msg)
             {
-                // TODO : 메세지 처리
+                // TODO : 메세지 처리 변경
             }
             else if (msgAck.msgType == MsgType.Whisper)
             {
-                // TODO : 귓속말 처리
+                // TODO : 귓속말 처리 변경
             }
         }
 
@@ -113,7 +113,7 @@ namespace BotClient
 
             if (nickNameAck.successful)
             {
-                // TODO : 여기서 닉네임 검증 로직 넣기=
+                // TODO : 여기서 닉네임 검증 로직 변경하기
             }
             else
             {
