@@ -1,0 +1,27 @@
+enum MsgType
+{
+	Msg,
+	Whisper,
+};
+
+interface ChatPacket
+{
+	void NickName
+	(
+		in string name,
+		out bool successful
+	);
+
+	void Message
+	(
+		in string msg,
+		in string senderName,
+		in string receiverName,
+		in MsgType msgType,
+
+		out string msg,
+		out string senderName,
+		out string receiverName,
+		out MsgType msgType,
+	);
+};
