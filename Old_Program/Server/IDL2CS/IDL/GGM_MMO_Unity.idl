@@ -1,0 +1,20 @@
+interface ChatPacket
+{
+	void NickName
+	(
+		in string name,
+		out bool successful
+	);
+
+	void Message
+	(
+		in string msg,
+		out string msg,
+		in string senderName,
+		out string senderName,
+		in string receiverName,
+		out string receiverName,
+		in bool isWhisperer,
+		out bool isWhisperer
+	);
+};
